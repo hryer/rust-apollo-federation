@@ -1,0 +1,20 @@
+[package]
+name = "federation-customer"
+version = "0.1.0"
+authors = ["hryer <harryermawan@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-graphql = "2.4.3"
+async-graphql-actix-web = "2.4.3"
+actix-web = "3.3.2"
+actix-rt = "1.1.1"
+tokio = { version = "0.2.0", features = ["macros", "rt-threaded"] }
+warp = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+futures = "0.3.1"
+dotenv = "0.9.0"
+env_logger = "0.6"
