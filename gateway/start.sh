@@ -5,21 +5,20 @@ function cleanup {
   kill "$PRODUCTS_PID"
   kill "$REVIEWS_PID"
 }
+
 trap cleanup EXIT
 
-cargo build --bin federation-accounts
-cargo build --bin federation-products
-cargo build --bin federation-reviews
-
-cargo run --bin federation-accounts &
+cd ../federation-customer
+cargo build --bin federation-customer
+cargo run --bin federation-customer &
 ACCOUNTS_PID=$!
 
-cargo run --bin federation-products &
+cd ../federation-cultivation
+cargo build --bin federation-cultivation
+cargo run --bin federation-cultivation &
 PRODUCTS_PID=$!
 
-cargo run --bin federation-reviews &
-REVIEWS_PID=$!
-
+cd ../gateway
 sleep 3
 
 node index.js
