@@ -1,0 +1,25 @@
+{
+  "name": "federation-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "check": "apollo schema:check",
+    "deploy": "apollo schema:publish"
+  },
+  "dependencies": {
+    "@apollo/federation": "latest",
+    "apollo-server": "latest",
+    "graphql": "latest",
+    "nodemon": "^1.19.0"
+  },
+  "devDependencies": {
+    "apollo": "latest"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "author": "harry er",
+  "license": "ISC"
+}
