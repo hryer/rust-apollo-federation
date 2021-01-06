@@ -31,7 +31,7 @@ impl ErrorExtensions for MyError {
 #[derive(SimpleObject)]
 struct Leads {
   id: ID,
-  username: String,
+  name: String,
 }
 
 struct Query;
@@ -41,18 +41,18 @@ impl Query {
   async fn me(&self) -> Leads {
     Leads {
       id: "1234".into(),
-      username: "Me".to_string(),
+      name: "Me".to_string(),
     }
   }
 
   #[graphql(entity)]
   async fn find_user_by_id(&self, id: ID) -> Leads{
-    let username = if id == "1234" {
+    let name = if id == "1234" {
       "Me".to_string()
     } else {
       format!("Leads{:?}", id)
     };
-    Leads{ id, username }
+    Leads{ id, name }
   }
 }
 
@@ -69,8 +69,6 @@ async fn health() -> impl Responder {
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
-  // let schema = Schema::new(Query, EmptyMutation, EmptySubscription);
-
   HttpServer::new(move || {
     App::new()
         .data(Schema::new(Query, EmptyMutation, EmptySubscription))

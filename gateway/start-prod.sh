@@ -10,12 +10,12 @@ trap cleanup EXIT
 
 cd ../federation-customer
 cargo build --bin federation-customer
-CUSTOMER_SERVICE_ADDRESS=http://stg-customer.service.efishery.com cargo run --bin federation-customer &
+CUSTOMER_SERVICE_ADDRESS=http://customer.service.efishery.com cargo run --bin federation-customer &
 ACCOUNTS_PID=$!
 
 cd ../federation-cultivation
 cargo build --bin federation-cultivation
-CULTIVATION_SERVICE_ADDRESS=http://stg-cultivation.service.efishery.com cargo run --bin federation-cultivation &
+CULTIVATION_SERVICE_ADDRESS=http://cultivation.service.efishery.com cargo run --bin federation-cultivation &
 PRODUCTS_PID=$!
 
 cd ../gateway
